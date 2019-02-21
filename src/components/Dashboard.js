@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import SiderLeftContent from './SiderLeftContent'
 import SiderRightContent from './SiderRightContent'
+import SiderContent from './SiderContent'
 
 const {
     Header, Footer, Sider, Content,
@@ -42,7 +43,9 @@ class Dashboard extends Component {
                     >
                     <SiderLeftContent />
                     </Sider>
-                    <Content style={{ background: "none" }} />
+                    <Content style={{ background: "none" }}>
+                        <SiderContent />
+                    </Content>
                     <Sider
                         style={{ background: "#212121", color: "#fff" }}
                         theme="#212121"
