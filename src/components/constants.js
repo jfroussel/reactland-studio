@@ -39,7 +39,6 @@ export const LayoutIcons = [
             svg11,
             svg12
         ]
-
     }]
 
 export const FormIcons = [
@@ -71,7 +70,7 @@ export const webComponents = [
 
 
 
-const topMenuConfig = [
+export const topMenuConfig = [
     {
         name: 'Fichier',
         subMenu: ''
@@ -92,5 +91,94 @@ const topMenuConfig = [
         name: 'Aide',
         subMenu: ''
     },
+]
+
+export const LayoutTemplates = [
+    {
+        id: 1,
+        name: '3col',
+        schema: `<div class="container">
+        <div class="row">
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+        </div>
+      </div>`
+    },
+    {
+        id: 2,
+        name: 'header-left sider-content-footer',
+        schema: `<div class="container">
+        <div class="row">
+          <div class="col-sm">
+            2
+          </div>
+          <div class="col-sm">
+           2
+          </div>
+          <div class="col-sm">
+            2
+          </div>
+        </div>
+      </div>`
+    },
+    {
+        id: 3,
+        name: 'header-left sider-content-right sider-footer',
+        schema: `<div class="container">
+        <div class="row">
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+        </div>
+      </div>`
+    },
+    {
+        id: 4,
+        name: 'header-content-right sider-footer',
+        schema: `<div class="container">
+        <div class="row">
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+        </div>
+      </div>`
+    },
+    {
+        id: 5,
+        name: 'header-content',
+        schema: `<div class="container">
+        <div class="row">
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+        </div>
+      </div>`
+    },
+    
 ]
 

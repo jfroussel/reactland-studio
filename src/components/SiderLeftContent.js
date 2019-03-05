@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { LayoutIcons, FormIcons } from './constants'
-import { Collapse, Icon, Avatar } from 'antd'
+import { LayoutIcons, FormIcons, LayoutTemplates } from './constants'
+import { Collapse, Icon, Avatar, Tag } from 'antd'
 
 const Panel = Collapse.Panel;
 const customPanelStyle = {
@@ -10,6 +10,7 @@ const customPanelStyle = {
     border: 0,
     overflow: 'hidden',
 };
+
 
 
 
@@ -27,33 +28,71 @@ class SiderLeftContent extends Component {
             return <Avatar
                 key={i}
                 shape="square"
-                style={{ margin: 5 }}
                 src={icon}
+                style={{ margin: 5, cursor: 'move' }}
+                onMouseOver={this.onMouseOver}
+                onMouseLeave={this.onMouseLeave}
 
             />
         })
     }
 
+    renderLayout(layouts) {
+        return layouts.map((layout, i) => {
+            return <Tag
+                key={i}
+                color="#f50"
+                style={{ margin: 5, cursor: 'move' }}
+                schema={layout.schema}
+                name={layout.name}
+                onMouseOver={this.onMouseOver}
+                onMouseLeave={this.onMouseLeave}
+                draggable="true"
+                onDragStart={(e) => this.onDragStart(e)}
+                onDragEnd={this.onDragEnd}
+            >
+                {layout.id}
+            </Tag>
+
+
+        })
+    }
+
+    onDrag(e) {
+        return console.log('on drag')
+    }
+
     onDragStart(e) {
-        return console.log('onDragStart', e.target)
+        let schema = e.target.getAttribute('schema')
+        console.log('dargstart', e.target)
+       
+        e.dataTransfer.setData("text/plain", schema)
+
     }
 
     onDragEnd(e) {
-        return console.log('onDragEnd', e.target)
+        return console.log('onDragEnd')
     }
-    onDrop(e) {
-        e.preventDefault()
-        console.log('ondrop')
 
-       
 
+    onMouseOver(e) {
+        console.log('mouse over')
+        e.target.style.background = "#d35400"
+    }
+
+    onMouseLeave(e) {
+        console.log('mouse leave')
+        return e.target.style.background = ''
     }
 
 
 
     render() {
+
         const layoutIcons = LayoutIcons[0].icons
         const formIcons = FormIcons[0].icons
+        const layouts = LayoutTemplates
+        console.log('layout', layouts)
 
         return (
 
@@ -68,7 +107,6 @@ class SiderLeftContent extends Component {
                         draggable="true"
                         onDragStart={this.onDragStart}
                         onDragEnd={this.onDragEnd}
-                        onDrop={this.onDrop}
                     >
                         {this.renderIcons(layoutIcons)}
                     </div>
@@ -82,6 +120,12 @@ class SiderLeftContent extends Component {
                 </Panel>
                 <Panel header="Other Components" key="3" style={customPanelStyle}>
                     others components
+                </Panel>
+
+                <Panel header="Layout templates" key="4" style={customPanelStyle}>
+
+                    {this.renderLayout(layouts)}
+
                 </Panel>
             </Collapse>
 

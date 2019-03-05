@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Icon } from 'antd';
 import SiderLeftContent from './SiderLeftContent'
 import SiderRightContent from './SiderRightContent'
 import SiderContent from './SiderContent'
@@ -8,11 +8,6 @@ const {
     Header, Footer, Sider, Content,
 } = Layout;
 
-const styles = {
-    sider: {
-        backgroundColor: '#c7c7c7'
-    }
-}
 
 class Dashboard extends Component {
     constructor(props) {

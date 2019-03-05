@@ -3,40 +3,59 @@ import React, { Component } from 'react';
 const style = {
     container: {
         //border: 'dashed 2px #c7c7c7',
-        minHeight: window.innerHeight,
+        minHeight: window.innerHeight - 150,
         margin: '10px 10px'
 
     }
 }
 
+
+
 class SiderContent extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            dragged: ''
-        }
+        this.state = { target: 'test'}
     }
 
     onDragOver(e) {
-        //return console.log('onDragOver', e.target)
+        e.preventDefault()
+      
+        console.log('on drag over',e.dataTransfer.getData("text"))
     }
 
     onDragEnter(e) {
-        if (e.target.className == "dropzone") {
+        e.preventDefault()
+
+        console.log('dragEnter', e.target)
+        if (e.target.className === "dropzone") {
             e.target.style.border = 'dashed 2px #d35400'
+
         }
     }
 
     onDragLeave(e) {
-        if (e.target.className == "dropzone") {
+        console.log('dragLeave')
+        if (e.target.className === "dropzone") {
             e.target.style.border = 'dashed 2px rgb(199, 198, 197)'
         }
     }
 
-   
+    onDrop(e) {
+       e.preventDefault();
+        var data = e.dataTransfer.getData("text")
+       e.target.innerHTML = data
+       console.log(e.target) 
+    }
+
+    onClean(e) {
+       if(e.target.className === "dropzone") {
+           console.log('on clean', e.target)
+       }
+    }
+
 
     render() {
-        console.log('drop', this.state.dragged)
+        console.log('state', this.state)
         return (
 
             <div
@@ -45,9 +64,9 @@ class SiderContent extends Component {
                 onDragOver={this.onDragOver}
                 onDragEnter={this.onDragEnter}
                 onDragLeave={this.onDragLeave}
-                
+                onDrop={this.onDrop}
+                onDoubleClick={this.onClean}
             >
-
             </div>
 
         )
