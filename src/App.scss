@@ -1,0 +1,16 @@
+@import '~antd/dist/antd.css';
+
+.dropzone {
+    border: dashed 2px rgb(199, 198, 197);
+}
+
+.container-studio {
+    border: dashed 1px rgb(243, 148, 148);
+    min-height: 100vh;
+    height: auto;
+    .col-sm {
+        border: dashed 1px rgb(243, 148, 148);
+        
+    }
+}
+

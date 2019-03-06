@@ -21,26 +21,6 @@ import table from '../assets/icons/form/table.svg'
 import select from '../assets/icons/form/select.svg'
 
 
-export const LayoutIcons = [
-    {
-        name: 'layout',
-        description: 'liste de layout pre-definis',
-        icons: [
-            svg1,
-            svg2,
-            svg3,
-            svg4,
-            svg5,
-            svg6,
-            svg7,
-            svg8,
-            svg9,
-            svg10,
-            svg11,
-            svg12
-        ]
-    }]
-
 export const FormIcons = [
     {
         name: 'formulaire',
@@ -93,92 +73,128 @@ export const topMenuConfig = [
     },
 ]
 
+
+/**
+ * h = header
+ * lsb = left side bar
+ * rsb = right side bar
+ * c = content
+ * f = footer
+ * col = column
+ * row = row
+ */
+
 export const LayoutTemplates = [
     {
         id: 1,
-        name: '3col',
-        schema: `<div class="container">
-        <div class="row">
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-        </div>
-      </div>`
+        name: 'h_lsb_c',
+        description: "layout with header / left side bar / content",
+        icon: svg1,
+        schema: `<div class="container container-studio">
+        
+        </div>`
+       
+     
     },
     {
         id: 2,
-        name: 'header-left sider-content-footer',
-        schema: `<div class="container">
-        <div class="row">
-          <div class="col-sm">
-            2
-          </div>
-          <div class="col-sm">
-           2
-          </div>
-          <div class="col-sm">
-            2
-          </div>
-        </div>
-      </div>`
+        icon: svg2,
+        name: '3col',
+        description: "layout with 3 columns",
+        schema: `<div class="container container-studio">
+        
+        </div>`
     },
     {
         id: 3,
-        name: 'header-left sider-content-right sider-footer',
-        schema: `<div class="container">
-        <div class="row">
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-        </div>
-      </div>`
+        icon: svg3,
+        name: '2col',
+        description: "layout with 2 columns",
+        schema: `<div class="container container-studio">
+        
+        </div>`
     },
     {
         id: 4,
-        name: 'header-content-right sider-footer',
-        schema: `<div class="container">
-        <div class="row">
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-        </div>
-      </div>`
+        icon: svg4,
+        name: 'lsb-1col',
+        description: "layout with left side bar and 1 column",
+        schema: `<div class="container container-studio">
+        
+        </div>`
     },
     {
         id: 5,
-        name: 'header-content',
-        schema: `<div class="container">
-        <div class="row">
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-        </div>
-      </div>`
+        icon: svg5,
+        name: 'h_2col',
+        description: "layout with header and 2 columns",
+        schema: `<div class="container container-studio">
+        
+        </div>`
     },
-    
+    {
+        id: 6,
+        icon: svg6,
+        name: 'h_1col_rsb',
+        description: "layout with header 1 column and right side bar",
+        schema: `<div class="container container-studio">
+        
+        </div>`
+    },
+    {
+        id: 7,
+        icon: svg7,
+        name: 'c',
+        description: "layout with just a div",
+        schema: `<div class="container container-studio">
+        
+        </div>`
+    },
+    {
+        id: 8,
+        icon: svg8,
+        name: '2row_2col',
+        description: "layout with 2 row and 2 columns",
+        schema: `<div class="container container-studio">
+        
+        </div>`
+    },
+    {
+        id: 9,
+        icon: svg9,
+        name: 'h_lsb_c_rsb',
+        description: "layout with header / left side / content and right side bar",
+        schema: `<div class="container container-studio">
+        
+        </div>`
+    },
+    {
+        id: 10,
+        icon: svg10,
+        name: '1col_rsb',
+        description: "layout with 1 column and right side bar",
+        schema: `<div class="container container-studio">
+        
+        </div>`
+    },
+    {
+        id: 11,
+        icon: svg11,
+        name: '3row',
+        description: "layout with 3 columns",
+        schema: `<div class="container container-studio">
+        
+        </div>`
+    },
+    {
+        id: 12,
+        icon: svg12,
+        name: 'h_c',
+        description: "layout with header and content",
+        schema: `<div class="container container-studio">
+        
+        </div>`
+    },
+
 ]
 

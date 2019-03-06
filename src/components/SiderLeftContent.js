@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { LayoutIcons, FormIcons, LayoutTemplates } from './constants'
-import { Collapse, Icon, Avatar, Tag } from 'antd'
+import { FormIcons, LayoutTemplates } from './constants'
+import { Collapse, Icon, Avatar, Tooltip } from 'antd'
 
 const Panel = Collapse.Panel;
 const customPanelStyle = {
@@ -11,16 +11,11 @@ const customPanelStyle = {
     overflow: 'hidden',
 };
 
-
-
-
 class SiderLeftContent extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-
-        }
+        this.state = {}
     }
 
     renderIcons(icons) {
@@ -32,17 +27,15 @@ class SiderLeftContent extends Component {
                 style={{ margin: 5, cursor: 'move' }}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseLeave}
-
             />
         })
     }
 
     renderLayout(layouts) {
         return layouts.map((layout, i) => {
-            return <Tag
+            return <div
                 key={i}
-                color="#f50"
-                style={{ margin: 5, cursor: 'move' }}
+                style={{ cursor: 'move', zIndex: 'auto', display: 'inline-block', margin: '5px' }}
                 schema={layout.schema}
                 name={layout.name}
                 onMouseOver={this.onMouseOver}
@@ -51,21 +44,24 @@ class SiderLeftContent extends Component {
                 onDragStart={(e) => this.onDragStart(e)}
                 onDragEnd={this.onDragEnd}
             >
-                {layout.id}
-            </Tag>
+                <Tooltip placement="topLeft" title={layout.description}>
+                    <Avatar src={layout.icon} size={30} shape="square" />
+                </Tooltip>
 
-
+            </div>
         })
     }
 
+
+
     onDrag(e) {
+        e.stopPropagation()
         return console.log('on drag')
     }
 
     onDragStart(e) {
-        let schema = e.target.getAttribute('schema')
-        console.log('dargstart', e.target)
-       
+        let p = e.target.parentElement.parentElement
+        let schema = p.getAttribute('schema')
         e.dataTransfer.setData("text/plain", schema)
 
     }
@@ -77,11 +73,13 @@ class SiderLeftContent extends Component {
 
     onMouseOver(e) {
         console.log('mouse over')
-        e.target.style.background = "#d35400"
+        let elm = e.target
+        
+        //e.target.style.background = "#d35400"
     }
 
     onMouseLeave(e) {
-        console.log('mouse leave')
+        //console.log('mouse leave', e.target)
         return e.target.style.background = ''
     }
 
@@ -89,10 +87,8 @@ class SiderLeftContent extends Component {
 
     render() {
 
-        const layoutIcons = LayoutIcons[0].icons
         const formIcons = FormIcons[0].icons
         const layouts = LayoutTemplates
-        console.log('layout', layouts)
 
         return (
 
@@ -102,16 +98,7 @@ class SiderLeftContent extends Component {
                 expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
             >
                 <Panel header="Layout templates" key="1" style={customPanelStyle}>
-
-                    <div
-                        draggable="true"
-                        onDragStart={this.onDragStart}
-                        onDragEnd={this.onDragEnd}
-                    >
-                        {this.renderIcons(layoutIcons)}
-                    </div>
-
-
+                    {this.renderLayout(layouts)}
                 </Panel>
                 <Panel header="Form components" key="2" style={customPanelStyle}>
                     {
@@ -120,12 +107,6 @@ class SiderLeftContent extends Component {
                 </Panel>
                 <Panel header="Other Components" key="3" style={customPanelStyle}>
                     others components
-                </Panel>
-
-                <Panel header="Layout templates" key="4" style={customPanelStyle}>
-
-                    {this.renderLayout(layouts)}
-
                 </Panel>
             </Collapse>
 
