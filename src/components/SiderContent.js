@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Button } from 'antd'
 
 const style = {
     container: {
-        //border: 'dashed 2px #c7c7c7',
-        minHeight: window.innerHeight - 150,
+        minHeight: '100vh',
         margin: '10px 10px'
 
     }
@@ -14,7 +14,7 @@ const style = {
 class SiderContent extends Component {
     constructor(props) {
         super(props)
-        this.state = { target: 'test' }
+        this.state = {}
     }
 
     onDragOver(e) {
@@ -46,27 +46,38 @@ class SiderContent extends Component {
         console.log('on drop data', data)
     }
 
-    onClean(e) {
-        if (e.target.className === "dropzone") {
-            console.log('on clean', e.target)
+    mouseOver(e) {
+        console.log('mouse over')
+    }
+    onClick(e) {
+        if(!e.target.children.length == 0) {
+            for (let i = 0; i < e.target.children.length; i++) {
+                console.log(e.target.children[i].tagName);
+              }
         }
+
     }
 
 
     render() {
         console.log('state', this.state)
         return (
-
-            <div
-                className="dropzone pt-5 pb-5"
-                style={style.container}
-                onDragOver={this.onDragOver}
-                onDragEnter={this.onDragEnter}
-                onDragLeave={this.onDragLeave}
-                onDrop={this.onDrop}
-                onDoubleClick={this.onClean}
-            >
+            <div>
+                <div className=""><Button type="primary" onClick={this.onClick} >Reset</Button></div>
+                <div
+                    className="dropzone pt-2 pb-2"
+                    style={style.container}
+                    onDragOver={this.onDragOver}
+                    onDragEnter={this.onDragEnter}
+                    onDragLeave={this.onDragLeave}
+                    onDrop={this.onDrop}
+                    onClick={this.onClean}
+                    onMouseOver={this.mouseOver}
+                    onClick={this.onClick}
+                >
+                </div>
             </div>
+
 
         )
     }

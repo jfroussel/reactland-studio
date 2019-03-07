@@ -1,16 +1,84 @@
 @import '~antd/dist/antd.css';
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #fff;
+$gray: #6c757d;
+$gray-dark: #343a40;
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+$border-dashed-orange : dashed 2px rgb(243, 148, 148);
+$border-dashed-default : dashed 2px rgb(163, 160, 160);
 
 .dropzone {
-    border: dashed 2px rgb(199, 198, 197);
+    border: dashed 2px $blue;
 }
 
 .container-studio {
-    border: dashed 1px rgb(243, 148, 148);
+    border: dashed 2px $orange;
     min-height: 100vh;
     height: auto;
     .col-sm {
-        border: dashed 1px rgb(243, 148, 148);
+        border: $border-dashed-orange;
         
     }
+}
+
+.h-studio {
+    min-height: 200px;
+    background-color: $pink;
+    border: solid 1px $dark;
+}
+
+.lsb-studio {
+    background-color: $green;
+    border: solid 1px $dark;
+    min-height: 100vh;
+}
+
+.rsb-studio {
+    background-color: $red;
+    border: solid 1px $dark;
+    min-height: 100vh;
+}
+
+.c-studio {
+    background-color: $info;
+    border: solid 1px $dark;
+    min-height: 100vh;
+
+}
+
+.f-studio {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+    background-color: $orange;
+    border: solid 1px $dark;
+}
+
+.col-studio {
+    background-color: $info;
+    border: solid 1px $dark;
+    min-height: 100vh;
+}
+
+.row-studio {
+    background-color: $yellow;
+    border: solid 1px $dark;
+    min-height: 35vh;
 }
 

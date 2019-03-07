@@ -35,7 +35,7 @@ class SiderLeftContent extends Component {
         return layouts.map((layout, i) => {
             return <div
                 key={i}
-                style={{ cursor: 'move', zIndex: 'auto', display: 'inline-block', margin: '5px' }}
+                style={{ cursor: 'move', display: 'inline-block', margin: '5px' }}
                 schema={layout.schema}
                 name={layout.name}
                 onMouseOver={this.onMouseOver}
@@ -63,6 +63,7 @@ class SiderLeftContent extends Component {
         let p = e.target.parentElement.parentElement
         let schema = p.getAttribute('schema')
         e.dataTransfer.setData("text/plain", schema)
+        console.log('drag ',schema)
 
     }
 
@@ -73,8 +74,6 @@ class SiderLeftContent extends Component {
 
     onMouseOver(e) {
         console.log('mouse over')
-        let elm = e.target
-        
         //e.target.style.background = "#d35400"
     }
 
